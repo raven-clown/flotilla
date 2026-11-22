@@ -65,7 +65,7 @@ The server side is one binary. The node side is not: it bundles upstream kubelet
 
 ### 3.1 Store
 
-- Key space mirrors the Kubernetes registry layout: `/registry/<group>/<resource>/<namespace>/<name>`.
+- Key space mirrors the upstream etcd layout: `/registry/<group>/<resource>/<namespace>/<name>`, with the group segment left out for the core group (`/registry/configmaps/<namespace>/<name>`).
 - Every write gets a cluster-wide revision. `resourceVersion` is that revision. Objects are stored as protobuf or JSON bytes with the revision.
 - Watch starts from any revision still held, and returns `410 Gone` after compaction, matching etcd semantics that clients depend on.
 - Compaction runs on a schedule and keeps a configurable window (default 5 minutes of history).
@@ -279,7 +279,8 @@ crates/
   flotilla/      the binary and CLI
   api/           Kubernetes types, codecs, Status errors
   store/         openraft + redb, MVCC, watch, compaction
-  apiserver/     HTTP handlers, discovery, patch, apply, authn, RBAC, admission
+  registry/      generic object storage over the store: metadata, defaults, validation, patch, encryption
+  apiserver/     HTTP handlers, discovery, authn, RBAC, admission
   scheduler/     scheduling framework and plugins
   controllers/   informers and controllers
   cni/           CNI plugin, bridge, IPAM, WireGuard
