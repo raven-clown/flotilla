@@ -1,0 +1,43 @@
+name: Feature request
+description: Ask for something flotilla does not do yet
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check the phases in docs/design.md first. Your feature may already be planned for a later phase.
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What are you trying to do, and what gets in the way today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you would like
+      description: How it should work. Examples of config or commands help.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of feature
+      options:
+        - Kubernetes API compatibility (a kind, field or behaviour Kubernetes has)
+        - Something beyond Kubernetes (short config, install, performance)
+        - Tooling, docs or CI
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives
+      description: Other ways you have tried or considered.
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Contributing
+      options:
+        - label: I would like to work on this myself.
