@@ -41,6 +41,10 @@ Compatibility is measured, not claimed. CI will run the CNCF conformance suite (
 
 Nodes run Linux. Development works on Linux or on Windows through WSL2.
 
+## Contributing
+
+Contributions are welcome. Start with [CONTRIBUTING.md](CONTRIBUTING.md), pick an issue from the [P1 milestone](https://github.com/raven-clown/flotilla/milestone/1), or ask in [Discussions](https://github.com/raven-clown/flotilla/discussions). Security problems go through [SECURITY.md](SECURITY.md).
+
 ## License
 
 Apache-2.0. See [LICENSE](LICENSE).
